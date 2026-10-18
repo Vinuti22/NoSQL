@@ -1,0 +1,36 @@
+-- Создание пространства ключей (Keyspace)
+CREATE KEYSPACE IF NOT EXISTS warehouse_db
+WITH replication = {
+    'class': 'SimpleStrategy',
+    'replication_factor': 1
+};
+
+USE warehouse_db;
+
+-- Таблица 1: Оптимизирована под запросы истории по складу и дате (Access Patterns: AP1, AP2, AP4, AP5, AP6)
+CREATE TABLE IF NOT EXISTS operations_by_warehouse_date (
+                                                            warehouse_id text,
+                                                            date text,             -- Формат: 'YYYY-MM-DD' (управляет размером партиции)
+                                                            operation_time timestamp,
+                                                            operation_id timeuuid,
+                                                            item_id text,
+                                                            operation_type text,   -- 'IN', 'OUT', 'ADJUSTMENT', 'TRANSFER'
+                                                            quantity int,
+                                                            operator text,
+                                                            notes text,
+                                                            PRIMARY KEY ((warehouse_id, date), operation_time, operation_id)
+    ) WITH CLUSTERING ORDER BY (operation_time DESC, operation_id DESC);
+
+-- Таблица 2: Оптимизирована под запросы истории по конкретному товару (Access Pattern: AP3)
+CREATE TABLE IF NOT EXISTS operations_by_item (
+                                                  item_id text,
+                                                  warehouse_id text,
+                                                  operation_time timestamp,
+                                                  operation_id timeuuid,
+                                                  date text,
+                                                  operation_type text,
+                                                  quantity int,
+                                                  operator text,
+                                                  notes text,
+                                                  PRIMARY KEY ((item_id), warehouse_id, operation_time, operation_id)
+    ) WITH CLUSTERING ORDER BY (warehouse_id ASC, operation_time DESC, operation_id DESC);
