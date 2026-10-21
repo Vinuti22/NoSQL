@@ -32,5 +32,5 @@ pytest -v                                               # 3 unit + 3 integration
 Подробнее: [ADR](docs/ADR.md), [требования и Access Patterns](docs/requirements.md), схема — `docs/architecture.png`.
 
 ## Материалы
-- Отчёт: `docs/report.pdf` — _вставьте ссылку_
+- Отчёт: `docs/report.pdf` — (https://github.com/Vinuti22/NoSQL/blob/main/sro2/%D0%9E%D1%82%D1%87%D0%B5%D1%82.docx)
 - Презентация: `docs/presentation.pdf` — _вставьте ссылку_
