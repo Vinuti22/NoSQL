@@ -33,4 +33,4 @@ pytest -v                                               # 3 unit + 3 integration
 
 ## Материалы
 - Отчёт: `docs/report.pdf` — (https://github.com/Vinuti22/NoSQL/blob/main/sro2/%D0%9E%D1%82%D1%87%D0%B5%D1%82.docx)
-- Презентация: `docs/presentation.pdf` — _вставьте ссылку_
+- Презентация: `docs/presentation.pdf` —(https://github.com/Vinuti22/NoSQL/blob/main/sro2/%D0%92%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%2015%20%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B9%20%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%B0%20(Cassandra).pdf)
