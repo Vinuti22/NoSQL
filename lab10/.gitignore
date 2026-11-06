@@ -1,0 +1,4 @@
+data/
+backup_lab10/
+*.log
+!results/*.log
